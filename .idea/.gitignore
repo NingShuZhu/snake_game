@@ -7,4 +7,6 @@
 /dataSources/
 /dataSources.local.xml
 # Ignore ide-dependent files and/or compiled code in repo
-.idea*
+.idea/
+*.iml
+out/
