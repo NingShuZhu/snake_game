@@ -13,4 +13,4 @@ git clone https://projects.cs.nott.ac.uk/scysw3/comp2013_cw.git
 
 3. Run the Play class in the IDE, then the game window will show up like this:
 
-![image](gameLookLike.png)
+![image](gameLookLike.png){:height="50%" width="50%"}
