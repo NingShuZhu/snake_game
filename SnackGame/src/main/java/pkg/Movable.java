@@ -1,4 +1,4 @@
-package example;
+package pkg;
 
 /**
  * 
@@ -8,7 +8,7 @@ package example;
  * @version Ekki viss
  */ 
 
-public interface movable
+public interface Movable
 {
 	void move();
 }

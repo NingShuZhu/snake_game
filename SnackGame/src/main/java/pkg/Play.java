@@ -1,10 +1,11 @@
-package example;
+package pkg;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  * 
@@ -19,18 +20,24 @@ public class Play extends MyFrame
 
 	private static final long serialVersionUID = -3641221053272056036L;
 
-	public MySnake mySnake = new MySnake(100, 100);// x , y
+	public Snake mySnake = new Snake(100, 100);// x , y
 	public Food food = new Food();
 
-	public Image background = ImageUtil.images.get("UI-background");
-	public Image fail = ImageUtil.images.get("game-scene-01");
+	public Image background = ImageMap.images.get("UI-background");
+	public Image fail = ImageMap.images.get("game-scene-01");
+
 
 	@Override
-	public void keyPressed(KeyEvent e)
+	public void loadFrame()
 	{
-		super.keyPressed(e);
-		mySnake.keyPressed(e);
+		super.loadFrame();
+
+		MyKeyListener myKeyListener = new MyKeyListener(mySnake);
+		jFrame.addKeyListener(myKeyListener);
+
+		new MyThread(this).start();
 	}
+
 
 	@Override
 	public void paint(Graphics g)
@@ -64,12 +71,8 @@ public class Play extends MyFrame
 		g.drawString("SCORE : " + mySnake.score, 20, 40);
 	}
 
-	public static void main(String[] args)
-	{
-		new Play().loadFrame();
-		MusicPlayer.getMusicPlay("src/example/musics/frogger.mp3");
 
-	}
+
 /*	
 	public static void main(String[] args)
 	{
