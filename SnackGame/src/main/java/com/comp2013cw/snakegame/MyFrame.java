@@ -1,13 +1,8 @@
-package pkg;
+package com.comp2013cw.snakegame;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

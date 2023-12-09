@@ -1,4 +1,4 @@
-package pkg;
+package com.comp2013cw.snakegame;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
