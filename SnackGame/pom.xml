@@ -25,13 +25,13 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>javazoom</groupId>
-      <artifactId>jlayer</artifactId>
-      <version>1.0.1</version>
-      <scope>system</scope>
-      <systemPath>${basedir}\src\lib\jl1.0.1.jar</systemPath> <!--basedir: SnakeGame-->
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>javazoom</groupId>-->
+<!--      <artifactId>jlayer</artifactId>-->
+<!--      <version>1.0.1</version>-->
+<!--      <scope>system</scope>-->
+<!--      <systemPath>${basedir}\src\lib\jl1.0.1.jar</systemPath> &lt;!&ndash;basedir: SnakeGame&ndash;&gt;-->
+<!--    </dependency>-->
 
     <dependency>
       <groupId>org.openjfx</groupId>
@@ -65,7 +65,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>Main</mainClass>
+              <mainClass>com.comp2013cw.snakegame.Game</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
