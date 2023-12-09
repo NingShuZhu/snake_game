@@ -1,11 +1,9 @@
-package pkg;
+package com.comp2013cw.snakegame;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 /**
  * 

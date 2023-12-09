@@ -1,4 +1,4 @@
-package pkg;
+package com.comp2013cw.snakegame;
 
 /**
  * 
