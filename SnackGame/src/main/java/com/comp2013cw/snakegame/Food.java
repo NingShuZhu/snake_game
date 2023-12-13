@@ -1,42 +1,4 @@
 package com.comp2013cw.snakegame;
-//
-//import java.awt.Graphics;
-//import java.io.Serial;
-//import java.io.Serializable;
-//import java.util.Random;
-//
-//public class Food extends SnakeObject implements Serializable {
-//
-//	@Serial
-//	private static final long serialVersionUID = -3641221053272056036L;
-//
-//
-//	public Food()	{
-//		this.l = true;
-//
-//		this.i = ImageMap.images.get(String.valueOf(new Random().nextInt(10)));
-//
-//		this.w = i.getWidth(null);
-//		this.h = i.getHeight(null);
-//
-//		this.x = (int) (Math.random() * (870 - w + 10));
-//		this.y = (int) (Math.random() * (560 - h - 40));
-//	}
-//
-//	public void eaten(Snake mySnake)	{
-//
-//		if (mySnake.getRectangle().intersects(this.getRectangle()) && l && mySnake.l)		{
-//			this.l = false;
-//			mySnake.changeLength(mySnake.getLength() + 1);
-//			mySnake.score += 521;
-//		}
-//	}
-//	@Override
-//	public void draw(Graphics g)
-//	{
-//		g.drawImage(i, x, y, null);
-//	}
-//}
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -62,22 +24,32 @@ public class Food {
 		foodH = foodImage.getHeight();
 	}
 
-//	private void generateFood() {
-//		foodX = (int) (Math.random()*WIDTH);
-//		foodY = (int) (Math.random()*HEIGHT);
-//
-//		foodImage = ImageMap.images.get(String.valueOf(new Random().nextInt(10)));
-//		foodW = foodImage.getWidth();
-//		foodH = foodImage.getHeight();
-//
-//	}
+	public int getFoodX() {
+		return foodX;
+	}
 
-	private void drawFood(GraphicsContext gc) {
+	public double getFoodW() {
+		return foodW;
+	}
+
+	public double getFoodH() {
+		return foodH;
+	}
+
+	public int getFoodY() {
+		return foodY;
+	}
+
+	public void draw(GraphicsContext gc) {
 		gc.drawImage(foodImage, foodX, foodY, 20,20);
 	}
 
 	private void eaten(Snake mySnake) {
-		if ((mySnake.x + mySnake.getHeadWidth() >= foodX && mySnake.x <= foodX + foodW) && (mySnake.y + mySnake.getHeadHeight() >= foodY && mySnake.y <= foodY + foodH)) {
+		// (mySnake.x + mySnake.getHeadWidth() >= foodX && mySnake.x <= foodX + foodW) && (mySnake.y + mySnake.getHeadHeight() >= foodY && mySnake.y <= foodY + foodH)
+		// Calculate the distance between the center of the snake head and the center of the food
+		double x1 = (foodX+(foodW/2) - mySnake.x-(mySnake.getHeadWidth()/2))*(foodX+(foodW/2) - mySnake.x-(mySnake.getHeadWidth()/2));
+		double x2 = (foodY+(foodH/2) - mySnake.y-(mySnake.getHeadHeight()/2))*(foodY+(foodH/2) - mySnake.y-(mySnake.getHeadHeight()/2));
+		if (50 <= x1+x2) {
 			isEaten = true;
 			mySnake.addBody = true;
 			//generateFood();
