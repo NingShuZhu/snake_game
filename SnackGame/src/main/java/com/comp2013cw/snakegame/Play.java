@@ -26,16 +26,18 @@ public class Play {
     private static final int UP = 2;
     private static final int DOWN = 3;
 
+    public Scene scene;
+    private Canvas canvas;
     private GraphicsContext gc;
     private final javafx.scene.image.Image gameOverImg = ImageMap.images.get("game-scene-01");
     private int currentDirection;
     Food food = new Food();
     Snake mySnake = new Snake(100,100);
+    StackPane root;
 
-    public void playGame(Stage stage) {
-
-        StackPane root = new StackPane();
-        javafx.scene.canvas.Canvas canvas = new Canvas(WIDTH, HEIGHT);
+    public Play() {
+        root = new StackPane();
+        canvas = new Canvas(WIDTH, HEIGHT);
         root.getChildren().add(canvas);
 
         // Set background image
@@ -46,11 +48,11 @@ public class Play {
                 BackgroundPosition.CENTER,
                 new BackgroundSize(1.0, 1.0, true, true, false, false)); // to fill the window
         Background background = new Background(backgroundImage);
-        Scene scene = new Scene(root);
         root.setBackground(background);
+        scene = new Scene(root);
+    }
 
-        stage.setScene(scene);
-        stage.show();
+    public void playGame() {
 
         gc = canvas.getGraphicsContext2D();
 
@@ -90,14 +92,22 @@ public class Play {
     }
 
 
-    private void run(GraphicsContext gc){
+    private void run(GraphicsContext gc) {
         //drawBackground(gc);
         if (mySnake.die) {
             // switch the scene
-            double w = gameOverImg.getWidth();
-            double h = gameOverImg.getHeight();
-            gc.drawImage(gameOverImg, (WIDTH-w) /2, (HEIGHT-h) /2);
+            Stage stage = (Stage) root.getScene().getWindow();
+            try{
+                EndScene endScene = new EndScene();
+                stage.setScene(endScene.end);
+            } catch (Exception e) {
+                System.out.println("fail to end: "+e);
+            }
             return;
+//            double w = gameOverImg.getWidth();
+//            double h = gameOverImg.getHeight();
+//            gc.drawImage(gameOverImg, (WIDTH-w) /2, (HEIGHT-h) /2);
+//            return;
         }
         gc.clearRect(0, 0, WIDTH, HEIGHT);
         food.draw(gc);
