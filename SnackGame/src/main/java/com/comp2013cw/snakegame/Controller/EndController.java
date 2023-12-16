@@ -1,24 +1,26 @@
 package com.comp2013cw.snakegame.Controller;
 
-import com.comp2013cw.snakegame.StartScene;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 
-public class EndController {
-    public Button playAgainButton;
-    public Button exitButton;
-    public AnchorPane rootLayout;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class EndController implements Initializable {
+
+    @FXML
     public void playAgain(ActionEvent actionEvent) throws Exception {
-        Stage stage = (Stage) rootLayout.getScene().getWindow();
-        StartScene startScene = new StartScene();
-        stage.setScene(startScene.start);
+        MainController.setScenePlay();
     }
 
+    @FXML
     public void exitGame(ActionEvent actionEvent) {
-        Stage stage = (Stage) rootLayout.getScene().getWindow();
-        stage.close();
+        MainController.exitGame();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("initialized\n");
     }
 }

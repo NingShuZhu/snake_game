@@ -4,16 +4,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="rootLayout" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.StartController">
+<!--        -->
+
+<AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" style="-fx-background-image: url('/images/UI-background2.png');" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.StartController">
+<!--   <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">-->
+<!--      <image>-->
+<!--         <Image url="/images/UI-background2.png" />-->
+<!--      </image>-->
+<!--   </ImageView>-->
    <children>
-      <Label layoutX="100.0" layoutY="108.0" prefHeight="109.0" prefWidth="401.0" text="Welcome To Snake Game" textFill="#d9a0cf">
+      <Label layoutX="187.0" layoutY="184.0" prefHeight="146.0" prefWidth="525.0" text="Welcome To Snake Game" textAlignment="CENTER" textFill="#d9a0cf">
          <font>
-            <Font name="Candara Bold Italic" size="37.0" />
+            <Font name="Candara Bold Italic" size="46.0" />
          </font>
       </Label>
-      <Button fx:id="startButton" layoutX="257.0" layoutY="225.0" mnemonicParsing="false" onAction="#switchToPlay" text="Start" textAlignment="CENTER" textFill="#765375">
+      <Button fx:id="startButton" layoutX="370.0" layoutY="330.0" mnemonicParsing="false" onAction="#switchToPlay" prefHeight="79.0" prefWidth="158.0" text="Start" textAlignment="CENTER" textFill="#765375">
          <font>
-            <Font name="Candara Bold" size="25.0" />
+            <Font name="Candara Bold" size="42.0" />
          </font>
       </Button>
    </children>

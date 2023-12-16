@@ -1,4 +1,4 @@
-package com.comp2013cw.snakegame;
+package com.comp2013cw.snakegame.Model;
 
 import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
@@ -22,15 +22,21 @@ public class ImageMethods
 
 	public static Image rotateImage(final Image image, final int degree)
 	{
-		double w = image.getWidth();
-		double h = image.getHeight();
-		ImageView iv = new ImageView(image);
-		iv.setRotate(degree);
-
-		SnapshotParameters params = new SnapshotParameters();
-		params.setFill(Color.TRANSPARENT);
-
-        return iv.snapshot(params, null);
-
+//		double w = image.getWidth();
+//		double h = image.getHeight();
+//		ImageView iv = new ImageView(image);
+//		iv.setRotate(degree);
+//
+//		SnapshotParameters params = new SnapshotParameters();
+//		params.setFill(Color.TRANSPARENT);
+//
+//        return iv.snapshot(params, null);
+		if (degree == -180)
+			return getImage("/images/snake-head-left.png");
+		else if (degree == -90)
+			return getImage("/images/snake-head-up.png");
+		else if (degree == 90)
+			return getImage("/images/snake-head-down.png");
+		else return image;
 	}
 }
