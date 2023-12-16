@@ -1,24 +1,29 @@
-package com.comp2013cw.snakegame;
+package com.comp2013cw.snakegame.Controller;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import com.comp2013cw.snakegame.Model.Food;
+import com.comp2013cw.snakegame.Game;
+import com.comp2013cw.snakegame.Model.ImageMap;
+import com.comp2013cw.snakegame.Model.Snake;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
-public class Play {
-    private static final int WIDTH = 1000;
-    private static final int HEIGHT = 700;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class GameController implements Initializable {
+    private static final int WIDTH = 900;
+    private static final int HEIGHT = 600;
     //private static final String[]
 
     private static final int RIGHT = 0;
@@ -27,6 +32,8 @@ public class Play {
     private static final int DOWN = 3;
 
     public Scene scene;
+    @FXML
+    public AnchorPane rootLayout;
     private Canvas canvas;
     private GraphicsContext gc;
     private final javafx.scene.image.Image gameOverImg = ImageMap.images.get("game-scene-01");
@@ -34,22 +41,11 @@ public class Play {
     Food food = new Food();
     Snake mySnake = new Snake(100,100);
     StackPane root;
-
-    public Play() {
-        root = new StackPane();
+    private Game game;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         canvas = new Canvas(WIDTH, HEIGHT);
-        root.getChildren().add(canvas);
-
-        // Set background image
-        Image image = ImageMap.images.get("UI-background");
-        BackgroundImage backgroundImage = new BackgroundImage(image,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.CENTER,
-                new BackgroundSize(1.0, 1.0, true, true, false, false)); // to fill the window
-        Background background = new Background(backgroundImage);
-        root.setBackground(background);
-        scene = new Scene(root);
+        rootLayout.getChildren().add(canvas);
     }
 
     public void playGame() {
@@ -57,6 +53,7 @@ public class Play {
         gc = canvas.getGraphicsContext2D();
 
         // Let the scene listen to the keyboard to set the moving direction
+        scene = rootLayout.getScene();
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -86,29 +83,28 @@ public class Play {
 
         drawScore(gc);
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(130), e -> run(gc)));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+        new Thread(()->{
+
+            while(!mySnake.die){
+                run(gc);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Platform.runLater(() -> {
+                    try {
+                        if (mySnake.die) MainController.setSceneEnd();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+        }).start();
+
     }
 
-
     private void run(GraphicsContext gc) {
-        //drawBackground(gc);
-        if (mySnake.die) {
-            // switch the scene
-            Stage stage = (Stage) root.getScene().getWindow();
-            try{
-                EndScene endScene = new EndScene();
-                stage.setScene(endScene.end);
-            } catch (Exception e) {
-                System.out.println("fail to end: "+e);
-            }
-            return;
-//            double w = gameOverImg.getWidth();
-//            double h = gameOverImg.getHeight();
-//            gc.drawImage(gameOverImg, (WIDTH-w) /2, (HEIGHT-h) /2);
-//            return;
-        }
         gc.clearRect(0, 0, WIDTH, HEIGHT);
         food.draw(gc);
         mySnake.drawSnake(gc);

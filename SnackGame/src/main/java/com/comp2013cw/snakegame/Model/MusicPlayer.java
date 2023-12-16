@@ -1,4 +1,4 @@
-package com.comp2013cw.snakegame;
+package com.comp2013cw.snakegame.Model;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
