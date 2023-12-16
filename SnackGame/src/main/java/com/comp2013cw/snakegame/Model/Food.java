@@ -1,4 +1,4 @@
-package com.comp2013cw.snakegame;
+package com.comp2013cw.snakegame.Model;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;

@@ -8,7 +8,9 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.comp2013cw.snakegame.Game"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:id="rootLayout"
+            fx:controller="com.comp2013cw.snakegame.Controller.GameController"
+            style="-fx-background-image: url('/images/UI-background.png');"
+            prefHeight="600.0" prefWidth="900.0">
 
 </AnchorPane>

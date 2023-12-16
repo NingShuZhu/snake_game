@@ -1,4 +1,4 @@
-package com.comp2013cw.snakegame;
+package com.comp2013cw.snakegame.Model;
 
 import javafx.scene.canvas.GraphicsContext;
 
@@ -59,7 +59,7 @@ public class Snake {
             }
         }
     }
-    void move(int currentDirection) {
+    public void move(int currentDirection) {
         switch (currentDirection) {
             case RIGHT:
                 // move right
@@ -88,7 +88,7 @@ public class Snake {
         }
     }
 
-    void eatFood(Food food) {
+    public void eatFood(Food food) {
         if ((x + headWidth >= food.getFoodX() && x <= food.getFoodX() + food.getFoodW()) && (y + headHeight >= food.getFoodY() && y <= food.getFoodY() + food.getFoodH())) {
             addBody = true;
             food.isEaten = true;
@@ -97,7 +97,7 @@ public class Snake {
     }
 
 
-    void eatBody() {
+    public void eatBody() {
         for (Point point : snakeBody)
         {
             for (Point point2 : snakeBody)
