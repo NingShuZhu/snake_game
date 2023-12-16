@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Snake {
-    private static final int WIDTH = 1000;
-    private static final int HEIGHT = 700;
+    private static final int WIDTH = 880;
+    private static final int HEIGHT = 580;
     //private static final String[]
 
     private static final int RIGHT = 0;
