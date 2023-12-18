@@ -1,5 +1,6 @@
 package com.comp2013cw.snakegame.Controller;
 
+import com.comp2013cw.snakegame.ConfirmBox;
 import com.comp2013cw.snakegame.Game;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,7 +30,9 @@ public class MainController {
     }
 
     public static void exitGame() {
-        game.stage.close();
+        boolean answer = ConfirmBox.display("Title", "Sure you want to exit?");
+        if (answer)
+            game.stage.close();
     }
 
     public static void setGame(Game game) {

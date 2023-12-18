@@ -1,27 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<!--        -->
+<!--   style="-fx-background-color: white;"    -->
 
-<AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" style="-fx-background-image: url('/images/UI-background2.png');" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.StartController">
+<AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" style="-fx-background-image: url('/images/background1.jpg');" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.StartController">
 <!--   <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">-->
 <!--      <image>-->
 <!--         <Image url="/images/UI-background2.png" />-->
 <!--      </image>-->
 <!--   </ImageView>-->
    <children>
-      <Label layoutX="187.0" layoutY="184.0" prefHeight="146.0" prefWidth="525.0" text="Welcome To Snake Game" textAlignment="CENTER" textFill="#d9a0cf">
-         <font>
-            <Font name="Candara Bold Italic" size="46.0" />
-         </font>
-      </Label>
-      <Button fx:id="startButton" layoutX="370.0" layoutY="330.0" mnemonicParsing="false" onAction="#switchToPlay" prefHeight="79.0" prefWidth="158.0" text="Start" textAlignment="CENTER" textFill="#765375">
+      <Button fx:id="startButton" layoutX="370.0" layoutY="386.0" mnemonicParsing="false" onAction="#switchToPlay" prefHeight="79.0" prefWidth="158.0" text="Start" textAlignment="CENTER" textFill="#765375">
          <font>
             <Font name="Candara Bold" size="42.0" />
          </font>
       </Button>
+      <Button fx:id="startButton1" layoutX="347.0" layoutY="218.0" mnemonicParsing="false" onAction="#clickCus" prefHeight="60.0" prefWidth="206.0" text="Customize" textAlignment="CENTER" textFill="#bc82bb">
+         <font>
+            <Font name="Candara Bold" size="31.0" />
+         </font>
+      </Button>
+      <Button fx:id="startButton11" layoutX="346.0" layoutY="293.0" mnemonicParsing="false" onAction="#clickHS" prefHeight="60.0" prefWidth="206.0" text="High Scores" textAlignment="CENTER" textFill="#9c6d9b">
+         <font>
+            <Font name="Candara Bold" size="31.0" />
+         </font>
+      </Button>
+      <Button layoutX="73.0" layoutY="496.0" mnemonicParsing="false" onAction="#clickRB" prefHeight="41.0" prefWidth="114.0" text="Report Bug" textFill="#6d556e">
+         <font>
+            <Font name="Candara" size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="69.0" fitWidth="74.0" layoutX="753.0" layoutY="482.0" onMouseClicked="#clickUser" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="160.0" fitWidth="130.0" layoutX="37.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/pink-snake.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="146.0" fitWidth="140.0" layoutX="697.0" layoutY="47.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/pink-snake.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#82bcffa8" height="17.0" layoutX="167.0" layoutY="51.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="526.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#82bcffa9" height="17.0" layoutX="167.0" layoutY="157.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="526.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#82bcff55" height="123.0" layoutX="166.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="526.0" />
+      <Label layoutX="187.0" layoutY="40.0" prefHeight="146.0" prefWidth="525.0" text="Welcome To Snake Game" textAlignment="CENTER" textFill="#d9a0cf">
+         <font>
+            <Font name="Candara Bold Italic" size="46.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -32,7 +32,10 @@ public class ImageMap
 		images.put("15", ImageMethods.getImage("/images/food-strawberry.png"));
 		images.put("16", ImageMethods.getImage("/images/food-watermelon.png"));
 		images.put("UI-background", ImageMethods.getImage("/images/UI-background.png"));
+		images.put("UI-background1", ImageMethods.getImage("/images/UI-background1.png"));
 		images.put("game-scene-01", ImageMethods.getImage("/images/game-scene-01.jpg"));
 		images.put("snake-logo", ImageMethods.getImage("/images/snake-logo.png"));
+		images.put("paused", ImageMethods.getImage("/images/paused.png"));
+		images.put("running", ImageMethods.getImage("/images/running.png"));
 	}
 }
