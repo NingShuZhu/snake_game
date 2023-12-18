@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" style="-fx-background-image: url('/images/UI-background.png');" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.GameController">
    <children>
@@ -14,5 +15,15 @@
             <Image url="@../../../../images/running.png" />
          </image>
       </ImageView>
+      <Label layoutX="314.0" layoutY="54.0" prefHeight="41.0" prefWidth="114.0" text="Highest Score: " textFill="#fcc8ff">
+         <font>
+            <Font name="Candara" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="highestScore" layoutX="438.0" layoutY="54.0" prefHeight="41.0" prefWidth="114.0" textFill="#fcc8ff">
+         <font>
+            <Font name="Candara Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
