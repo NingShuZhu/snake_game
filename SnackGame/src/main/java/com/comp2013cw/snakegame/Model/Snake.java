@@ -42,10 +42,22 @@ public class Snake {
 
     public void drawSnake(GraphicsContext gc) {
         // add head
+        // if speed is 2 times of the head width, add the middle point too
+        if (speed_XY == 50) {
+            // get old head point
+            Point oldPoint = snakeBody.get(snakeBody.size()-1);
+            Point midPoint = new Point((oldPoint.x+x)/2, (oldPoint.y+y)/2);
+            snakeBody.add(midPoint);
+        }
         snakeBody.add(new Point(x, y));
-
         //remove tail
-        if (!addBody && snakeBody.size() > 1) {
+        if (speed_XY == 50 && !addBody && snakeBody.size() > 1) {
+            snakeBody.remove(0);
+            snakeBody.remove(0);
+        } else if (speed_XY == 50 && addBody && snakeBody.size() > 1) {
+            snakeBody.remove(0);
+        }
+        if (speed_XY == 25 && !addBody && snakeBody.size() > 1) {
             snakeBody.remove(0);
         }
 
