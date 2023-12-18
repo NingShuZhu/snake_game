@@ -6,15 +6,27 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class RankedRecord {
-    private final IntegerProperty idx;//Simple
-    private final StringProperty userName;
-    private final IntegerProperty score;
-//    public String userName;
-//    public int score;
-//    public int idx;
+//    public final IntegerProperty idx;//Simple
+//    public final StringProperty userName;
+//    public final IntegerProperty score;
+    private final String userName;
+    private final int score;
+    private final int idx;
+    public String getUserName() {
+        return userName;
+    }
+    public int getScore() {
+        return score;
+    }
+    public int getIdx() {
+        return idx;
+    }
     public RankedRecord(int idx, String userName, int score) {
-        this.idx = new SimpleIntegerProperty(idx);
-        this.userName = new SimpleStringProperty(userName);
-        this.score = new SimpleIntegerProperty(score);
+//        this.idx = new SimpleIntegerProperty(idx);
+//        this.userName = new SimpleStringProperty(userName);
+//        this.score = new SimpleIntegerProperty(score);
+        this.idx = idx;
+        this.userName = userName;
+        this.score = score;
     }
 }

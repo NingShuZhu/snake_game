@@ -28,7 +28,10 @@ public class GameThread extends Thread {
     @Override
     public void run() throws RuntimeException {
         while (true) {
-            if (Thread.currentThread().isInterrupted()) return;
+            if (Thread.currentThread().isInterrupted()) {
+                MainController.setScore(gameC.mySnake.score);
+                return;
+            }
             synchronized (this) {
                 while (gameC.paused) {
                     try {
@@ -56,8 +59,9 @@ public class GameThread extends Thread {
                 try {
                     if (gameC.mySnake.die) {
                         //System.out.println("here4\n");
-                        PlayRecord pr = new PlayRecord("un", gameC.mySnake.score);
-                        MainController.addData(pr);
+                        MainController.setScore(gameC.mySnake.score);
+//                        PlayRecord pr = new PlayRecord("un", gameC.mySnake.score);
+//                        MainController.addData(pr);
                         MainController.setSceneEnd();
                         return;
                     }

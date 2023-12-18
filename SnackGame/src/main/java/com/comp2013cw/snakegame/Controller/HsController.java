@@ -13,10 +13,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HsController implements Initializable {
-    public TableView tableView;
-    public TableColumn colRank;
-    public TableColumn colUserName;
-    public TableColumn colScore;
+    public TableView<RankedRecord> tableView;
+    public TableColumn<RankedRecord, Integer> colRank;
+    public TableColumn<RankedRecord, String> colUserName;
+    public TableColumn<RankedRecord, Integer> colScore;
     private ObservableList<RankedRecord> dataList = FXCollections.observableArrayList();
 
 //    public void addInfo(ObservableList<PlayRecord> data) {
@@ -25,11 +25,11 @@ public class HsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        colRank.setCellValueFactory(new PropertyValueFactory("idx"));
-        colUserName.setCellValueFactory(new PropertyValueFactory("userName"));
-        colScore.setCellValueFactory(new PropertyValueFactory("score"));
+        colRank.setCellValueFactory(new PropertyValueFactory<>("idx"));
+        colUserName.setCellValueFactory(new PropertyValueFactory<>("userName"));
+        colScore.setCellValueFactory(new PropertyValueFactory<>("score"));
         for (int i = 0; i < MainController.dataList.size(); i++) {
-            dataList.add(new RankedRecord(i, MainController.dataList.get(i).userName, MainController.dataList.get(i).score));
+            dataList.add(new RankedRecord(i+1, MainController.dataList.get(i).getUserName(), MainController.dataList.get(i).getScore()));
         }
         tableView.setItems(dataList);
     }
