@@ -1,5 +1,6 @@
 package com.comp2013cw.snakegame.Controller;
 
+import com.comp2013cw.snakegame.Model.ImageMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,6 +20,8 @@ public class StartController {
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/com/comp2013cw/snakegame/view/userGUI.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage window = new Stage();
+        window.setTitle("User");
+        window.getIcons().add(ImageMap.images.get("snake-logo"));
         window.setScene(scene);
         window.showAndWait();
     }
@@ -28,6 +31,8 @@ public class StartController {
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/com/comp2013cw/snakegame/view/reportBugGUI.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage window = new Stage();
+        window.setTitle("Report Bug");
+        window.getIcons().add(ImageMap.images.get("snake-logo"));
         window.setScene(scene);
         window.showAndWait();
     }
@@ -37,6 +42,8 @@ public class StartController {
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/com/comp2013cw/snakegame/view/highScoreGUI.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage window = new Stage();
+        window.setTitle("High Scores");
+        window.getIcons().add(ImageMap.images.get("snake-logo"));
         window.setScene(scene);
         window.showAndWait();
     }
@@ -46,6 +53,8 @@ public class StartController {
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/com/comp2013cw/snakegame/view/custoGUI.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage window = new Stage();
+        window.setTitle("Customization");
+        window.getIcons().add(ImageMap.images.get("snake-logo"));
         window.setScene(scene);
         window.showAndWait();
     }

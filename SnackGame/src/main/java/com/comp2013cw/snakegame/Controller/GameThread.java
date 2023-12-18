@@ -1,6 +1,7 @@
 package com.comp2013cw.snakegame.Controller;
 
 import com.comp2013cw.snakegame.Model.ImageMap;
+import com.comp2013cw.snakegame.Model.PlayRecord;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -54,7 +55,9 @@ public class GameThread extends Thread {
             Platform.runLater(() -> {
                 try {
                     if (gameC.mySnake.die) {
-                        System.out.println("here4\n");
+                        //System.out.println("here4\n");
+                        PlayRecord pr = new PlayRecord("un", gameC.mySnake.score);
+                        MainController.addData(pr);
                         MainController.setSceneEnd();
                         return;
                     }

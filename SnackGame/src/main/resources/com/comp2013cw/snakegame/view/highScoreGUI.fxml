@@ -7,9 +7,9 @@
    <children>
       <TableView fx:id="tableView" layoutX="87.0" layoutY="112.0" prefHeight="342.0" prefWidth="226.0">
         <columns>
-          <TableColumn prefWidth="51.20001220703125" text="Rank" />
-          <TableColumn prefWidth="99.20001220703125" text="User Name" />
-            <TableColumn prefWidth="75.0" text="Score" />
+          <TableColumn fx:id="colRank" prefWidth="51.20001220703125" text="Rank" />
+          <TableColumn fx:id="colUserName" prefWidth="99.20001220703125" text="User Name" />
+            <TableColumn fx:id="colScore" prefWidth="75.0" text="Score" />
         </columns>
       </TableView>
    </children>

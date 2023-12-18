@@ -2,12 +2,16 @@ package com.comp2013cw.snakegame.Controller;
 
 import com.comp2013cw.snakegame.ConfirmBox;
 import com.comp2013cw.snakegame.Game;
+import com.comp2013cw.snakegame.Model.PlayRecord;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 import java.io.IOException;
 
 public class MainController {
+    public static ObservableList<PlayRecord> dataList = FXCollections.observableArrayList();
     private static Game game;
     public static void setSceneStart() throws IOException {
         //System.out.println(MainController.class.getResource("view/StartGUI.fxml"));
@@ -37,5 +41,9 @@ public class MainController {
 
     public static void setGame(Game game) {
         MainController.game = game;
+    }
+
+    public static void addData(PlayRecord pr) {
+        dataList.add(pr);
     }
 }

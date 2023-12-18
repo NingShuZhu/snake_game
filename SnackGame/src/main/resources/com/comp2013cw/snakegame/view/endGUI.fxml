@@ -6,14 +6,19 @@
 
 <AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" style="-fx-background-image: url('/images/end.png');" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.EndController">
    <children>
-      <Button fx:id="playAgainButton" layoutX="253.0" layoutY="331.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="83.0" prefWidth="251.0" text="Play Again" textFill="#b776aa">
+      <Button fx:id="playAgainButton" layoutX="390.0" layoutY="338.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="49.0" prefWidth="169.0" text="Play Again">
          <font>
-            <Font name="Candara" size="42.0" />
+            <Font name="Candara" size="28.0" />
          </font>
       </Button>
-      <Button fx:id="exitButton" layoutX="574.0" layoutY="342.0" mnemonicParsing="false" onAction="#exitGame" text="Exit">
+      <Button fx:id="exitButton" layoutX="617.0" layoutY="341.0" mnemonicParsing="false" onAction="#exitGame" text="Exit">
          <font>
             <Font name="Candara" size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="122.0" layoutY="339.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="54.0" prefWidth="210.0" text="Back to Home">
+         <font>
+            <Font name="Candara" size="28.0" />
          </font>
       </Button>
    </children>
