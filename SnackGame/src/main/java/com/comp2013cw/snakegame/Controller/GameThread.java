@@ -5,6 +5,10 @@ import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+
 import java.io.IOException;
 
 public class GameThread extends Thread {
@@ -55,7 +59,14 @@ public class GameThread extends Thread {
                         return;
                     }
                     if (gameC.mySnake.score > 2000 && !gameC.bgChanged) {
+                        // speed up
+                        gameC.mySnake.speed_XY = gameC.mySnake.speed_XY * 2;
                         gameC.bgChanged = true;
+                        // put text
+                        Label label = new Label("\n\n                  Night coming!\n                  Speed up!");
+                        label.setTextFill(Color.web("#a3a5cf"));
+                        label.setFont(new Font("Candara", 30));
+                        gameC.rootLayout.getChildren().add(label);
                         // Set new background image
                         Image image = ImageMap.images.get("UI-background1");
                         BackgroundImage backgroundImage = new BackgroundImage(image,

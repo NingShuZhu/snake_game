@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.HsController">
    <children>
-      <TableView layoutX="87.0" layoutY="112.0" prefHeight="342.0" prefWidth="226.0">
+      <TableView fx:id="tableView" layoutX="87.0" layoutY="112.0" prefHeight="342.0" prefWidth="226.0">
         <columns>
           <TableColumn prefWidth="51.20001220703125" text="Rank" />
           <TableColumn prefWidth="99.20001220703125" text="User Name" />
