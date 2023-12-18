@@ -6,19 +6,19 @@
 
 <AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" style="-fx-background-image: url('/images/end.png');" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.EndController">
    <children>
-      <Button fx:id="playAgainButton" layoutX="390.0" layoutY="338.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="49.0" prefWidth="169.0" text="Play Again">
+      <Label layoutX="210.0" layoutY="344.0" prefHeight="65.0" prefWidth="303.0" text="Please enter your name:" textFill="WHITE">
          <font>
-            <Font name="Candara" size="28.0" />
+            <Font name="Candara" size="27.0" />
          </font>
-      </Button>
-      <Button fx:id="exitButton" layoutX="617.0" layoutY="341.0" mnemonicParsing="false" onAction="#exitGame" text="Exit">
+      </Label>
+      <TextField fx:id="name" layoutX="210.0" layoutY="404.0" prefHeight="45.0" prefWidth="479.0" promptText="Your user name">
          <font>
-            <Font name="Candara" size="26.0" />
+            <Font size="20.0" />
          </font>
-      </Button>
-      <Button layoutX="122.0" layoutY="339.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="54.0" prefWidth="210.0" text="Back to Home">
+      </TextField>
+      <Button layoutX="414.0" layoutY="486.0" mnemonicParsing="false" onAction="#clickOK" prefHeight="42.0" prefWidth="71.0" text="OK">
          <font>
-            <Font name="Candara" size="28.0" />
+            <Font name="Candara" size="21.0" />
          </font>
       </Button>
    </children>

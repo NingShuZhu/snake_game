@@ -37,5 +37,6 @@ public class ImageMap
 		images.put("snake-logo", ImageMethods.getImage("/images/snake-logo.png"));
 		images.put("paused", ImageMethods.getImage("/images/paused.png"));
 		images.put("running", ImageMethods.getImage("/images/running.png"));
+		images.put("congratulation", ImageMethods.getImage("/images/congratulation.png"));
 	}
 }

@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -45,6 +46,7 @@ public class GameController implements Initializable {
     @FXML
     public Button endGameButton;
     public ImageView pauseIV;
+    public Label highestScore;
     @FXML
     private Canvas canvas;
     GraphicsContext gc;
@@ -62,6 +64,11 @@ public class GameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (!MainController.dataList.isEmpty()){
+            highestScore.setText(String.valueOf(MainController.dataList.get(0).getScore()));
+        } else {
+            highestScore.setText(" ");
+        }
         endGameButton.setFocusTraversable(false);
     }
 
