@@ -12,6 +12,9 @@ import java.io.IOException;
 
 public class MainController {
     public static ObservableList<PlayRecord> dataList = FXCollections.observableArrayList();
+    public static String colorScheme = "Nature scene (default)";
+    public static String music = "Brisk (default)";
+    public static String snakeScheme = "Cute (default)";
     private static Game game;
     public static void setSceneStart() throws IOException {
         //System.out.println(MainController.class.getResource("view/StartGUI.fxml"));
