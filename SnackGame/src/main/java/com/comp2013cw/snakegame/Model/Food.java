@@ -6,8 +6,8 @@ import javafx.scene.image.Image;
 import java.util.Random;
 
 public class Food {
-	private static final int WIDTH = 1000;
-	private static final int HEIGHT = 700;
+	private static final int WIDTH = 870;
+	private static final int HEIGHT = 570;
 	private final Image foodImage;
 	private final int foodX;
 	private final int foodY;

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!--        style="-fx-background-image: url('/images/end2.jpg');"-->
+
+<AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.EndController2">
+    <children>
+        <Button fx:id="playAgainButton" layoutX="406.0" layoutY="420.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="49.0" prefWidth="169.0" text="Play Again">
+            <font>
+                <Font name="Candara" size="28.0" />
+            </font>
+        </Button>
+        <Button fx:id="exitButton" layoutX="658.0" layoutY="422.0" mnemonicParsing="false" onAction="#exitGame" text="Exit">
+            <font>
+                <Font name="Candara" size="26.0" />
+            </font>
+        </Button>
+        <Button layoutX="123.0" layoutY="420.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="54.0" prefWidth="210.0" text="Back to Home">
+            <font>
+                <Font name="Candara" size="28.0" />
+            </font>
+        </Button>
+      <Label layoutX="205.0" layoutY="77.0" prefHeight="50.0" prefWidth="53.0" text="Hi" textFill="#a4629e">
+         <font>
+            <Font name="Candara" size="51.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameLabel" layoutX="270.0" layoutY="77.0" prefHeight="50.0" prefWidth="441.0" text="UN" textFill="#a4629e">
+         <font>
+            <Font name="Candara" size="51.0" />
+         </font>
+      </Label>
+      <Label layoutX="205.0" layoutY="145.0" prefHeight="50.0" prefWidth="249.0" text="Your Score is:">
+         <font>
+            <Font name="Candara Bold Italic" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreLabel" layoutX="394.0" layoutY="218.0" prefHeight="50.0" prefWidth="264.0" text="521" textAlignment="CENTER">
+         <font>
+            <Font name="Candara" size="57.0" />
+         </font>
+      </Label>
+      <Label fx:id="highestLabel" layoutX="348.0" layoutY="319.0" prefHeight="54.0" prefWidth="264.0" textAlignment="CENTER" textFill="#d188ca">
+         <font>
+            <Font name="Candara Bold" size="39.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="iv1" fitHeight="120.0" fitWidth="134.0" layoutX="125.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
+    </children>
+</AnchorPane>

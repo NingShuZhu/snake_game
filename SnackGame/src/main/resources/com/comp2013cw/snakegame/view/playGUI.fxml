@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:id="rootLayout"
-            fx:controller="com.comp2013cw.snakegame.Controller.GameController"
-            style="-fx-background-image: url('/images/UI-background.png');"
-            prefHeight="600.0" prefWidth="900.0">
-
+<?import javafx.scene.text.*?>
+<!--        style="-fx-background-image: url('/images/UI-background.png');"-->
+<AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.GameController">
+   <children>
+      <Canvas fx:id="canvas" height="600.0" width="900.0" />
+      <Button fx:id="endGameButton" layoutX="724.0" layoutY="45.0" mnemonicParsing="false" onAction="#endGame" prefHeight="32.0" prefWidth="85.0" text="End Game" textFill="#3261ac" />
+      <ImageView fx:id="pauseIV" fitHeight="43.0" fitWidth="41.0" layoutX="664.0" layoutY="41.0" onMouseClicked="#switchPause" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/running.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="314.0" layoutY="54.0" prefHeight="41.0" prefWidth="114.0" text="Highest Score: " textFill="#fcc8ff">
+         <font>
+            <Font name="Candara" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="highestScore" layoutX="438.0" layoutY="54.0" prefHeight="41.0" prefWidth="114.0" textFill="#fcc8ff">
+         <font>
+            <Font name="Candara Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

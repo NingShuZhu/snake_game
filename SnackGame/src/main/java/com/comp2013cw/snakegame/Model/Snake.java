@@ -1,5 +1,6 @@
 package com.comp2013cw.snakegame.Model;
 
+import com.comp2013cw.snakegame.Controller.MainController;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.awt.*;
@@ -7,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Snake {
-    private static final int WIDTH = 1000;
-    private static final int HEIGHT = 700;
+    private static final int WIDTH = 880;
+    private static final int HEIGHT = 580;
     //private static final String[]
 
     private static final int RIGHT = 0;
@@ -16,15 +17,17 @@ public class Snake {
     private static final int UP = 2;
     private static final int DOWN = 3;
     private final List<Point> snakeBody = new ArrayList<>();
-    private final javafx.scene.image.Image bodyImg = ImageMap.images.get("snake-body"); // 25*25
-    private final javafx.scene.image.Image ImgSnakeHead = ImageMap.images.get("snake-head-right");
+//    private final javafx.scene.image.Image bodyImg = ImageMap.images.get("snake-body"); // 25*25
+    private final javafx.scene.image.Image bodyImg = MainController.bodyImg;
+//    private final javafx.scene.image.Image ImgSnakeHead = ImageMap.images.get("snake-head-right");
+    private final javafx.scene.image.Image ImgSnakeHead = MainController.headImg;
 
     public Snake(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    private javafx.scene.image.Image newImgSnakeHead = ImageMap.images.get("snake-head-right");
+    private javafx.scene.image.Image newImgSnakeHead = MainController.headImg;
     private final double headWidth = newImgSnakeHead.getWidth(); //25
     private final double headHeight = newImgSnakeHead.getHeight();
     public int x;
@@ -42,10 +45,22 @@ public class Snake {
 
     public void drawSnake(GraphicsContext gc) {
         // add head
+        // if speed is 2 times of the head width, add the middle point too
+        if (speed_XY == 50) {
+            // get old head point
+            Point oldPoint = snakeBody.get(snakeBody.size()-1);
+            Point midPoint = new Point((oldPoint.x+x)/2, (oldPoint.y+y)/2);
+            snakeBody.add(midPoint);
+        }
         snakeBody.add(new Point(x, y));
-
         //remove tail
-        if (!addBody && snakeBody.size() > 1) {
+        if (speed_XY == 50 && !addBody && snakeBody.size() > 1) {
+            snakeBody.remove(0);
+            snakeBody.remove(0);
+        } else if (speed_XY == 50 && addBody && snakeBody.size() > 1) {
+            snakeBody.remove(0);
+        }
+        if (speed_XY == 25 && !addBody && snakeBody.size() > 1) {
             snakeBody.remove(0);
         }
 
@@ -71,19 +86,19 @@ public class Snake {
                 // move left
                 x -= speed_XY;
                 // snake head to left
-                newImgSnakeHead = ImageMethods.rotateImage(ImgSnakeHead, -180);
+                newImgSnakeHead = ImageMethods.rotateImage(ImgSnakeHead, -180, MainController.isCyberSnake);
                 break;
             case UP:
                 // move up
                 y -= speed_XY;
                 // snake head to up
-                newImgSnakeHead = ImageMethods.rotateImage(ImgSnakeHead, -90);
+                newImgSnakeHead = ImageMethods.rotateImage(ImgSnakeHead, -90, MainController.isCyberSnake);
                 break;
             case DOWN:
                 // move down
                 y += speed_XY;
                 // snake head to down
-                newImgSnakeHead = ImageMethods.rotateImage(ImgSnakeHead, 90);
+                newImgSnakeHead = ImageMethods.rotateImage(ImgSnakeHead, 90, MainController.isCyberSnake);
                 break;
         }
     }
