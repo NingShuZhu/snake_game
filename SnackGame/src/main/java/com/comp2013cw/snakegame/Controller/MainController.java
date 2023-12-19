@@ -1,6 +1,5 @@
 package com.comp2013cw.snakegame.Controller;
 
-import com.comp2013cw.snakegame.ConfirmBox;
 import com.comp2013cw.snakegame.Game;
 import com.comp2013cw.snakegame.Model.ImageMap;
 import com.comp2013cw.snakegame.Model.MusicMap;
@@ -98,7 +97,7 @@ public class MainController {
     }
 
     public static void exitGame() {
-        boolean answer = ConfirmBox.display("Title", "Sure you want to exit?");
+        boolean answer = ConfirmBox.display("Confirm", "Sure you want to exit?");
         if (answer)
             game.stage.close();
     }

@@ -1,11 +1,9 @@
 package com.comp2013cw.snakegame.Controller;
 
-import com.comp2013cw.snakegame.ConfirmBox;
 import com.comp2013cw.snakegame.Model.Food;
 import com.comp2013cw.snakegame.Game;
 import com.comp2013cw.snakegame.Model.ImageMap;
 import com.comp2013cw.snakegame.Model.Snake;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -22,16 +20,12 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -171,6 +165,7 @@ public class GameController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/com/comp2013cw/snakegame/view/confirmGUI.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage window = new Stage();
+        window.getIcons().add(ImageMap.images.get("snake-logo"));
         window.setScene(scene);
         window.showAndWait();
         ConfirmController confirmController = fxmlLoader.getController();

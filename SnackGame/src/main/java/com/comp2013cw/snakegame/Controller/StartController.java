@@ -21,16 +21,6 @@ public class StartController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        MainController.media = new Media(
-//                getClass().getResource(MusicMap.musicPaths.get(MainController.music)).toString()
-//        );
-//        MainController.mediaPlayer = new MediaPlayer(MainController.media);
-//        // loop the music
-//        MainController.mediaPlayer.setOnEndOfMedia(new Runnable() {
-//            public void run() {
-//                MainController.mediaPlayer.seek(Duration.ZERO);
-//            }
-//        });
         MainController.initMediaPlayers();
         MainController.mediaPlayer = MainController.nsMediaPlayer;
         MainController.bodyImg = MainController.nsBodyImg;
@@ -41,16 +31,16 @@ public class StartController implements Initializable {
         MainController.setScenePlay();
     }
 
-    public void clickUser(MouseEvent mouseEvent) throws IOException {
-        System.out.println("User clicked\n");
-        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/com/comp2013cw/snakegame/view/userGUI.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage window = new Stage();
-        window.setTitle("User");
-        window.getIcons().add(ImageMap.images.get("snake-logo"));
-        window.setScene(scene);
-        window.showAndWait();
-    }
+//    public void clickUser(MouseEvent mouseEvent) throws IOException {
+//        System.out.println("User clicked\n");
+//        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/com/comp2013cw/snakegame/view/userGUI.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        Stage window = new Stage();
+//        window.setTitle("User");
+//        window.getIcons().add(ImageMap.images.get("snake-logo"));
+//        window.setScene(scene);
+//        window.showAndWait();
+//    }
 
     public void clickRB(ActionEvent actionEvent) throws IOException {
         System.out.println("RB clicked\n");

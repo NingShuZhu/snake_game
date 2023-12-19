@@ -1,5 +1,6 @@
-package com.comp2013cw.snakegame;
+package com.comp2013cw.snakegame.Controller;
 
+import com.comp2013cw.snakegame.Model.ImageMap;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +15,7 @@ public class ConfirmBox {
 
     public static boolean display(String title, String message){
         Stage window = new Stage();
+        window.getIcons().add(ImageMap.images.get("snake-logo"));
 
         //Block events to other windows
         window.initModality(Modality.APPLICATION_MODAL);
