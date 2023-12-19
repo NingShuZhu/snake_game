@@ -4,16 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" style="-fx-background-image: url('/images/game-scene-01.jpg');" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.EndController">
+<AnchorPane fx:id="rootLayout" prefHeight="600.0" prefWidth="900.0" style="-fx-background-image: url('/images/end.png');" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.EndController">
    <children>
-      <Button fx:id="playAgainButton" layoutX="253.0" layoutY="331.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="83.0" prefWidth="251.0" text="Play Again" textFill="#b776aa">
+      <Label layoutX="210.0" layoutY="344.0" prefHeight="65.0" prefWidth="303.0" text="Please enter your name:" textFill="WHITE">
          <font>
-            <Font name="Candara" size="42.0" />
+            <Font name="Candara" size="27.0" />
          </font>
-      </Button>
-      <Button fx:id="exitButton" layoutX="574.0" layoutY="342.0" mnemonicParsing="false" onAction="#exitGame" text="Exit">
+      </Label>
+      <TextField fx:id="name" layoutX="210.0" layoutY="404.0" prefHeight="45.0" prefWidth="479.0" promptText="Your user name">
          <font>
-            <Font name="Candara" size="26.0" />
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button layoutX="414.0" layoutY="486.0" mnemonicParsing="false" onAction="#clickOK" prefHeight="42.0" prefWidth="71.0" text="OK">
+         <font>
+            <Font name="Candara" size="21.0" />
          </font>
       </Button>
    </children>

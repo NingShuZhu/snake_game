@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<!--        style="-fx-background-color: #8ee4bc;"-->
+<AnchorPane fx:id="rootLayout" prefHeight="200.0" prefWidth="300.0"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2013cw.snakegame.Controller.EmptyController">
+    <children>
+        <Label layoutX="52.0" layoutY="46.0" prefHeight="43.0" prefWidth="239.0" text="Username can't be empty!">
+            <font>
+                <Font name="Candara Bold Italic" size="18.0" />
+            </font>
+        </Label>
+        <Button layoutX="100.0" layoutY="111.0" mnemonicParsing="false" onAction="#ok" prefHeight="30.0" prefWidth="99.0" text="OK" />
+    </children>
+</AnchorPane>
