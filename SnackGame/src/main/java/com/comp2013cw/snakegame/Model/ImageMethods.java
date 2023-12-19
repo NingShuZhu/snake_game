@@ -1,5 +1,6 @@
 package com.comp2013cw.snakegame.Model;
 
+import com.comp2013cw.snakegame.Controller.MainController;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,7 +21,7 @@ public class ImageMethods
         return image;
     }
 
-	public static Image rotateImage(final Image image, final int degree)
+	public static Image rotateImage(final Image image, final int degree, boolean isCyber)
 	{
 //		double w = image.getWidth();
 //		double h = image.getHeight();
@@ -31,12 +32,23 @@ public class ImageMethods
 //		params.setFill(Color.TRANSPARENT);
 //
 //        return iv.snapshot(params, null);
-		if (degree == -180)
-			return getImage("/images/snake-head-left.png");
-		else if (degree == -90)
-			return getImage("/images/snake-head-up.png");
-		else if (degree == 90)
-			return getImage("/images/snake-head-down.png");
-		else return image;
+		if (!isCyber){
+			if (degree == -180)
+				return getImage("/images/snake-head-left.png");
+			else if (degree == -90)
+				return getImage("/images/snake-head-up.png");
+			else if (degree == 90)
+				return getImage("/images/snake-head-down.png");
+			else return image;
+		} else {
+			if (degree == -180)
+				return getImage("/images/snake-head-left-cyber.png");
+			else if (degree == -90)
+				return getImage("/images/snake-head-up-cyber.png");
+			else if (degree == 90)
+				return getImage("/images/snake-head-down-cyber.png");
+			else return image;
+		}
+
 	}
 }

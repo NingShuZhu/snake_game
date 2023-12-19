@@ -36,11 +36,11 @@ public class GameThread extends Thread {
                 while (gameC.paused) {
                     try {
                         isWaiting = true;
-                        gameC.mediaPlayer.pause();
+                        MainController.mediaPlayer.pause();
                         System.out.println("waiting\n");
                         wait();
                         isWaiting = false;
-                        gameC.mediaPlayer.play();
+                        MainController.mediaPlayer.play();
                         System.out.println("not waiting\n");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -60,7 +60,7 @@ public class GameThread extends Thread {
             Platform.runLater(() -> {
                 try {
                     if (gameC.mySnake.die) {
-                        gameC.mediaPlayer.stop();
+                        MainController.mediaPlayer.stop();
                         MainController.setScore(gameC.mySnake.score);
                         MainController.setSceneEnd();
                         return;
@@ -75,14 +75,7 @@ public class GameThread extends Thread {
                         label.setFont(new Font("Candara", 30));
                         gameC.rootLayout.getChildren().add(label);
                         // Set new background image
-                        Image image = ImageMap.images.get("UI-background1");
-                        BackgroundImage backgroundImage = new BackgroundImage(image,
-                                BackgroundRepeat.NO_REPEAT,
-                                BackgroundRepeat.NO_REPEAT,
-                                BackgroundPosition.CENTER,
-                                new BackgroundSize(1.0, 1.0, true, true, false, false)); // to fill the window
-                        Background background = new Background(backgroundImage);
-                        gameC.rootLayout.setBackground(background);
+                        gameC.setBackground(gameC.background2);
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);

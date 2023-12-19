@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,9 +17,9 @@ public class EndController2 implements Initializable {
     public Label nameLabel;
     public Label scoreLabel;
     public Label highestLabel;
-    public ImageView iv2;
     public ImageView iv1;
     private final Image image = ImageMap.images.get("congratulation");
+    public AnchorPane rootLayout;
 
     @FXML
     public void playAgain(ActionEvent actionEvent) throws Exception {
@@ -32,13 +33,26 @@ public class EndController2 implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        System.out.println("initialized\n");
-        nameLabel.setText(MainController.getName());
+        // set background
+        Image bgImage = ImageMap.images.get("end2");
+        BackgroundImage backgroundImage = new BackgroundImage(bgImage,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(1.0, 1.0, true, true, false, false)); // to fill the window
+        Background background = new Background(backgroundImage);
+        rootLayout.setBackground(background);
+
+        // put username on the screen
+        nameLabel.setText(MainController.getName() + "!");
+
+        // put score on the screen
         scoreLabel.setText(String.valueOf(MainController.getScore()));
+
+        // if the score is the highest, congratulate
         if (MainController.isHighest) {
             highestLabel.setText("Highest Score!");
             iv1.setImage(image);
-            iv2.setImage(image);
         }
     }
 

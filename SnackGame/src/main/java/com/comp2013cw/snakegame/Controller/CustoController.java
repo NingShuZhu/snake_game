@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CustoController implements Initializable {
@@ -18,6 +19,12 @@ public class CustoController implements Initializable {
     public void clickConfirm(ActionEvent actionEvent) {
         if (musicCombo.getValue()!=null) {
             MainController.music = musicCombo.getValue();
+            // set the media player
+            if (Objects.equals(musicCombo.getValue(), "Mechanistic")) {
+                MainController.mediaPlayer = MainController.cyberMediaPlayer;
+            } else {
+                MainController.mediaPlayer = MainController.nsMediaPlayer;
+            }
             //System.out.println(MainController.music);
         }
         if (colorCombo.getValue()!=null) {
@@ -25,6 +32,15 @@ public class CustoController implements Initializable {
         }
         if (snakeCombo.getValue()!=null) {
             MainController.snakeScheme = snakeCombo.getValue();
+            if (Objects.equals(snakeCombo.getValue(), "Pixel style")) {
+                MainController.bodyImg = MainController.cyberBodyImg;
+                MainController.headImg = MainController.cyberHeadImg;
+                MainController.isCyberSnake = true;
+            } else {
+                MainController.bodyImg = MainController.nsBodyImg;
+                MainController.headImg = MainController.nsHeadImg;
+                MainController.isCyberSnake = false;
+            }
         }
         Stage stage = (Stage) rootLayout.getScene().getWindow();
         stage.close();

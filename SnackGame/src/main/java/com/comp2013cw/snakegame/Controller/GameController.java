@@ -27,10 +27,12 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
@@ -56,25 +58,34 @@ public class GameController implements Initializable {
     private final javafx.scene.image.Image gameOverImg = ImageMap.images.get("game-scene-01");
     private final Image pausedImg = ImageMap.images.get("paused");
     private final Image runningImg = ImageMap.images.get("running");
+    public Image background1;
+    public Image background2;
     private int currentDirection;
     Food food = new Food();
-    Snake mySnake = new Snake(100,100);
+    Snake mySnake = new Snake(100, 100);
     boolean bgChanged = false;
     volatile boolean paused = false;
     private Game game;
     private final GameThread myThread = new GameThread(this);
-    public MediaPlayer mediaPlayer;
-    //    private final Object flag = new Object();;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // play the background music
-        Media media = new Media(getClass().getResource("/musics/frogger.mp3").toString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
+        MainController.mediaPlayer.play();
+
+        // set the background
+        if (Objects.equals(MainController.colorScheme, "Nature scene (default)")) {
+            background1 = MainController.nsBackground1;
+            background2 = MainController.nsBackground2;
+        } else {
+            background1 = MainController.cyberBackground1;
+            background2 = MainController.cyberBackground2;
+        }
+
+        setBackground(background1);
 
         // show the highest score on the scene
-        if (!MainController.dataList.isEmpty()){
+        if (!MainController.dataList.isEmpty()) {
             highestScore.setText(String.valueOf(MainController.dataList.get(0).getScore()));
         } else {
             highestScore.setText(" ");
@@ -135,6 +146,16 @@ public class GameController implements Initializable {
         mySnake.outOfBounds();
     }
 
+    public void setBackground(Image image) {
+        BackgroundImage backgroundImage = new BackgroundImage(image,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(1.0, 1.0, true, true, false, false)); // to fill the window
+        Background background = new Background(backgroundImage);
+        rootLayout.setBackground(background);
+    }
+
     private void drawScore(GraphicsContext gc) {
         this.gc.setFill(Color.WHITE);
         this.gc.setFont(new Font("Digital-7", 35));
@@ -163,8 +184,7 @@ public class GameController implements Initializable {
             synchronized (myThread) {
                 myThread.interrupt();
             }
-        }
-        else {
+        } else {
             paused = false;
             synchronized (myThread) {
                 myThread.notify();
@@ -188,56 +208,4 @@ public class GameController implements Initializable {
         }
     }
 
-//    class GameThread extends Thread {
-//        private volatile boolean isPaused = true;
-//        private GameController myGame;
-//
-//        public void setPaused(boolean paused) {
-//            isPaused = paused;
-//        }
-//
-//        public void setGame(GameController gameController) {
-//            myGame = gameController;
-//        }
-//
-//        @Override
-//        public void run() {
-//            while (true) {
-//                synchronized (this) {
-//                    while (isPaused) {
-//                        try {
-//                            wait();
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                }
-//            }
-//            myGame.run(myGame.gc);
-//            try {
-//                Thread.sleep(100);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            Platform.runLater(() -> {
-//                try {
-//                    if (mySnake.die) MainController.setSceneEnd();
-//                    if (mySnake.score > 2000 && !bgChanged) {
-//                        bgChanged = true;
-//                        // Set new background image
-//                        Image image = ImageMap.images.get("UI-background1");
-//                        BackgroundImage backgroundImage = new BackgroundImage(image,
-//                                BackgroundRepeat.NO_REPEAT,
-//                                BackgroundRepeat.NO_REPEAT,
-//                                BackgroundPosition.CENTER,
-//                                new BackgroundSize(1.0, 1.0, true, true, false, false)); // to fill the window
-//                        Background background = new Background(backgroundImage);
-//                        rootLayout.setBackground(background);
-//                    }
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            });
-//        }
-//    }
 }

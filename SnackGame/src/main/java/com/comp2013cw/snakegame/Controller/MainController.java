@@ -2,11 +2,17 @@ package com.comp2013cw.snakegame.Controller;
 
 import com.comp2013cw.snakegame.ConfirmBox;
 import com.comp2013cw.snakegame.Game;
+import com.comp2013cw.snakegame.Model.ImageMap;
+import com.comp2013cw.snakegame.Model.MusicMap;
 import com.comp2013cw.snakegame.Model.PlayRecord;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.Comparator;
@@ -16,6 +22,22 @@ public class MainController {
     public static String colorScheme = "Nature scene (default)";
     public static String music = "Brisk (default)";
     public static String snakeScheme = "Cute (default)";
+    public static Media nsMedia;
+    public static Media cyberMedia;
+    public static MediaPlayer nsMediaPlayer;
+    public static MediaPlayer cyberMediaPlayer;
+    public static MediaPlayer mediaPlayer;
+    public static Image nsBackground1 = ImageMap.images.get("UI-background");
+    public static Image nsBackground2 = ImageMap.images.get("UI-background1");
+    public static Image cyberBackground1 = ImageMap.images.get("cyber-bg1");
+    public static Image cyberBackground2 = ImageMap.images.get("cyber-bg2");
+    public static Image nsBodyImg = ImageMap.images.get("snake-body");
+    public static Image cyberBodyImg = ImageMap.images.get("snake-body-cyber");
+    public static Image bodyImg;
+    public static Image nsHeadImg = ImageMap.images.get("snake-head-right");
+    public static Image cyberHeadImg = ImageMap.images.get("snake-head-right-cyber");
+    public static Image headImg;
+    public static boolean isCyberSnake = false;
     private static final Comparator<PlayRecord> comparator = new Comparator<PlayRecord>(){
         @Override
         public int compare(PlayRecord o1, PlayRecord o2) {
@@ -30,6 +52,25 @@ public class MainController {
     private static String name;
     private static int score;
     public static boolean isHighest;
+
+
+    public static void initMediaPlayers() {
+        nsMedia = new Media(
+                MainController.class.getResource(MusicMap.musicPaths.get("Brisk (default)")).toString()
+        );
+        nsMediaPlayer = new MediaPlayer(nsMedia);
+        // loop the music
+        nsMediaPlayer.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                nsMediaPlayer.seek(Duration.ZERO);
+            }
+        });
+
+        cyberMedia = new Media(
+                MainController.class.getResource(MusicMap.musicPaths.get("cyber")).toString()
+        );
+        cyberMediaPlayer = new MediaPlayer(cyberMedia);
+    }
     public static void setSceneStart() throws IOException {
         //System.out.println(MainController.class.getResource("view/StartGUI.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/com/comp2013cw/snakegame/view/StartGUI.fxml"));
