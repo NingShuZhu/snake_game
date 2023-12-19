@@ -36,9 +36,11 @@ public class GameThread extends Thread {
                 while (gameC.paused) {
                     try {
                         isWaiting = true;
+                        gameC.mediaPlayer.pause();
                         System.out.println("waiting\n");
                         wait();
                         isWaiting = false;
+                        gameC.mediaPlayer.play();
                         System.out.println("not waiting\n");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -58,10 +60,8 @@ public class GameThread extends Thread {
             Platform.runLater(() -> {
                 try {
                     if (gameC.mySnake.die) {
-                        //System.out.println("here4\n");
+                        gameC.mediaPlayer.stop();
                         MainController.setScore(gameC.mySnake.score);
-//                        PlayRecord pr = new PlayRecord("un", gameC.mySnake.score);
-//                        MainController.addData(pr);
                         MainController.setSceneEnd();
                         return;
                     }

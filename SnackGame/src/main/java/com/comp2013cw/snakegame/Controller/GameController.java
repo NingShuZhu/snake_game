@@ -22,12 +22,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
@@ -60,15 +63,23 @@ public class GameController implements Initializable {
     volatile boolean paused = false;
     private Game game;
     private final GameThread myThread = new GameThread(this);
-//    private final Object flag = new Object();;
+    public MediaPlayer mediaPlayer;
+    //    private final Object flag = new Object();;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // play the background music
+        Media media = new Media(getClass().getResource("/musics/frogger.mp3").toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+
+        // show the highest score on the scene
         if (!MainController.dataList.isEmpty()){
             highestScore.setText(String.valueOf(MainController.dataList.get(0).getScore()));
         } else {
             highestScore.setText(" ");
         }
+
         endGameButton.setFocusTraversable(false);
     }
 
