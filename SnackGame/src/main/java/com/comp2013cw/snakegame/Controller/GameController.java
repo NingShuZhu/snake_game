@@ -156,6 +156,19 @@ public class GameController implements Initializable {
         this.gc.fillText("Score: " + mySnake.score, 10, 35);
     }
 
+    public void changeLevel() {
+        // speed up
+        mySnake.speed_XY = mySnake.speed_XY * 2;
+        bgChanged = true;
+        // put text
+        Label label = new Label("\n\n                  Night coming!\n                  Speed up!");
+        label.setTextFill(Color.web("#a3a5cf"));
+        label.setFont(new Font("Candara", 30));
+        rootLayout.getChildren().add(label);
+        // Set new background image
+        setBackground(background2);
+    }
+
     public void endGame(ActionEvent actionEvent) throws IOException {
         System.out.println("end game clicked\n");
         if (!paused) {

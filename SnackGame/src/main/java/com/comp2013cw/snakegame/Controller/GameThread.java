@@ -66,16 +66,7 @@ public class GameThread extends Thread {
                         return;
                     }
                     if (gameC.mySnake.score > 2000 && !gameC.bgChanged) {
-                        // speed up
-                        gameC.mySnake.speed_XY = gameC.mySnake.speed_XY * 2;
-                        gameC.bgChanged = true;
-                        // put text
-                        Label label = new Label("\n\n                  Night coming!\n                  Speed up!");
-                        label.setTextFill(Color.web("#a3a5cf"));
-                        label.setFont(new Font("Candara", 30));
-                        gameC.rootLayout.getChildren().add(label);
-                        // Set new background image
-                        gameC.setBackground(gameC.background2);
+                        gameC.changeLevel();
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);

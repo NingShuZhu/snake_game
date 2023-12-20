@@ -7,25 +7,17 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Snake {
+public class Snake implements Movable{
     private static final int WIDTH = 880;
     private static final int HEIGHT = 580;
-    //private static final String[]
 
     private static final int RIGHT = 0;
     private static final int LEFT = 1;
     private static final int UP = 2;
     private static final int DOWN = 3;
     private final List<Point> snakeBody = new ArrayList<>();
-//    private final javafx.scene.image.Image bodyImg = ImageMap.images.get("snake-body"); // 25*25
-    private final javafx.scene.image.Image bodyImg = MainController.bodyImg;
-//    private final javafx.scene.image.Image ImgSnakeHead = ImageMap.images.get("snake-head-right");
+    private final javafx.scene.image.Image bodyImg = MainController.bodyImg; // 25*25
     private final javafx.scene.image.Image ImgSnakeHead = MainController.headImg;
-
-    public Snake(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
 
     private javafx.scene.image.Image newImgSnakeHead = MainController.headImg;
     private final double headWidth = newImgSnakeHead.getWidth(); //25
@@ -36,11 +28,10 @@ public class Snake {
     public int score = 0;
     public boolean die = false;
     public boolean addBody = false;
-    public double getHeadWidth() {
-        return headWidth;
-    }
-    public double getHeadHeight() {
-        return headHeight;
+
+    public Snake(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     public void drawSnake(GraphicsContext gc) {
@@ -63,11 +54,13 @@ public class Snake {
         if (speed_XY == 25 && !addBody && snakeBody.size() > 1) {
             snakeBody.remove(0);
         }
-
+        // draw the snake's head
         gc.drawImage(newImgSnakeHead, x, y);
+        // draw the snake's body
         drawSnakeBody(gc);
     }
     private void drawSnakeBody(GraphicsContext gc) {
+        // if the snake has body, draw it one by one
         if (snakeBody.size() > 1) {
             for(int i = 0; i < snakeBody.size() - 1; i++){
                 gc.drawImage(bodyImg, snakeBody.get(i).getX(), snakeBody.get(i).getY());
@@ -104,21 +97,27 @@ public class Snake {
     }
 
     public void eatFood(Food food) {
+        // calculate if the snake's head is around the food
         if ((x + headWidth >= food.getFoodX() && x <= food.getFoodX() + food.getFoodW()) && (y + headHeight >= food.getFoodY() && y <= food.getFoodY() + food.getFoodH())) {
+            // add body length
             addBody = true;
+            // eat food
             food.isEaten = true;
+            // add score
             score += 521;
         } else addBody = false;
     }
 
 
     public void eatBody() {
+        // if two points of the snake are in the same place, it eats itself
         for (Point point : snakeBody)
         {
             for (Point point2 : snakeBody)
             {
                 if (point.equals(point2) && point != point2)
                 {
+                    // if eats itself, the snake dies
                     this.die = true;
                     break;
                 }
@@ -127,10 +126,12 @@ public class Snake {
     }
 
     public void outOfBounds() {
+        // if the current place of the snake is out of the bounds of the stage
         boolean xOut = (x < 0 || x > WIDTH);
         boolean yOut = (y < 0 || y > HEIGHT);
         if (xOut || yOut)
         {
+            // if out of bounds, the snake dies
             die = true;
         }
     }
