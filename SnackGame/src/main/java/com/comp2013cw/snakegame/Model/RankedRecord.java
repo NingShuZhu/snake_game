@@ -5,6 +5,11 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * Class to represent a play record with its ranking.
+ * @author Shuli WANG
+ */
+
 public class RankedRecord {
 //    public final IntegerProperty idx;//Simple
 //    public final StringProperty userName;
@@ -12,6 +17,7 @@ public class RankedRecord {
     private final String userName;
     private final int score;
     private final int idx;
+
     public String getUserName() {
         return userName;
     }
@@ -21,10 +27,14 @@ public class RankedRecord {
     public int getIdx() {
         return idx;
     }
+
+    /**
+     * constructor
+     * @param idx index
+     * @param userName
+     * @param score
+     */
     public RankedRecord(int idx, String userName, int score) {
-//        this.idx = new SimpleIntegerProperty(idx);
-//        this.userName = new SimpleStringProperty(userName);
-//        this.score = new SimpleIntegerProperty(score);
         this.idx = idx;
         this.userName = userName;
         this.score = score;

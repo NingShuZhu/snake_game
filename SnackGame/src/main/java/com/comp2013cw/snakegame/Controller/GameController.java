@@ -29,6 +29,11 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of the screen to play the game.
+ * @author Shuli WANG
+ */
+
 public class GameController implements Initializable {
     private static final int WIDTH = 900;
     private static final int HEIGHT = 600;

@@ -6,6 +6,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller of the confirmation box which
+ * shows up when 'End Game' button clicked.
+ * @author Shuli WANG
+ */
+
 public class ConfirmController {
     public AnchorPane rootLayout;
     public boolean answer;

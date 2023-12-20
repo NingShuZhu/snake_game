@@ -9,6 +9,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller of Report Bug screen, which can be accessed from the start screen.
+ * @author Shuli WANG
+ */
+
 public class RbController {
     public AnchorPane rootLayout;
 

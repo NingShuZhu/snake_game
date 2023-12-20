@@ -12,6 +12,11 @@ import javafx.scene.text.Font;
 
 import java.io.IOException;
 
+/**
+ * The thread to run the game logic of each frame.
+ * @author Shuli WANG
+ */
+
 public class GameThread extends Thread {
     public boolean isWaiting = false;
     //private volatile boolean isPaused = true;

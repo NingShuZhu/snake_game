@@ -10,6 +10,11 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of the customization screen, which can be accessed from the start screen.
+ * @author Shuli WANG
+ */
+
 public class CustoController implements Initializable {
     public ComboBox<String> colorCombo;
     public ComboBox<String> musicCombo;

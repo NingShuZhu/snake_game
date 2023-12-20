@@ -9,6 +9,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Shows a window to allow user to choose yes or no,
+ * be Instantiated after 'Exit' button is clicked.
+ * @author Shuli WANG
+ */
+
 public class ConfirmBox {
 
     static boolean answer;

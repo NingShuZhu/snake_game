@@ -12,6 +12,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of High Score screen, which can be accessed from the start screen.
+ * @author Shuli WANG
+ */
+
 public class HsController implements Initializable {
     public TableView<RankedRecord> tableView;
     public TableColumn<RankedRecord, Integer> colRank;

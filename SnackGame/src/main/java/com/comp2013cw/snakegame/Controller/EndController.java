@@ -13,20 +13,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of the first end screen,
+ * allow players to enter their names.
+ * @author Shuli WANG
+ */
+
 public class EndController implements Initializable {
 
     public TextField name;
 
-    //    @FXML
-//    public void playAgain(ActionEvent actionEvent) throws Exception {
-//        MainController.setScenePlay();
-//    }
-//
-//    @FXML
-//    public void exitGame(ActionEvent actionEvent) {
-//        MainController.exitGame();
-//    }
-//
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("initialized\n");
@@ -47,10 +43,5 @@ public class EndController implements Initializable {
             window.show();
         }
     }
-//
-//    public void backToHome(ActionEvent actionEvent) throws IOException {
-//        MainController.setSceneStart();
-//    }
-
 
 }

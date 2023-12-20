@@ -17,6 +17,11 @@ import java.net.URL;
 import java.net.spi.InetAddressResolver;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of the start screen
+ * @author Shuli WANG
+ */
+
 public class StartController implements Initializable {
 
     @Override
@@ -30,17 +35,6 @@ public class StartController implements Initializable {
     public void switchToPlay(ActionEvent actionEvent) throws IOException {
         MainController.setScenePlay();
     }
-
-//    public void clickUser(MouseEvent mouseEvent) throws IOException {
-//        System.out.println("User clicked\n");
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/com/comp2013cw/snakegame/view/userGUI.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        Stage window = new Stage();
-//        window.setTitle("User");
-//        window.getIcons().add(ImageMap.images.get("snake-logo"));
-//        window.setScene(scene);
-//        window.showAndWait();
-//    }
 
     public void clickRB(ActionEvent actionEvent) throws IOException {
         System.out.println("RB clicked\n");

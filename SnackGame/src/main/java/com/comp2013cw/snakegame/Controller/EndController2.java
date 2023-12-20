@@ -13,6 +13,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of the second end screen,
+ * shows the player's name, score, and
+ * if the score is the highest.
+ * @author Shuli WANG
+ */
+
 public class EndController2 implements Initializable {
     public Label nameLabel;
     public Label scoreLabel;
