@@ -24,10 +24,11 @@ public class HsController implements Initializable {
     public TableColumn<RankedRecord, Integer> colScore;
     private ObservableList<RankedRecord> dataList = FXCollections.observableArrayList();
 
-//    public void addInfo(ObservableList<PlayRecord> data) {
-//        dataList.addAll(data);
-//    }
-
+    /**
+     * initialize the high score table
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colRank.setCellValueFactory(new PropertyValueFactory<>("idx"));

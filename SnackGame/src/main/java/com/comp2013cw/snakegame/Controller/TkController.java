@@ -13,6 +13,10 @@ import javafx.stage.Stage;
 public class TkController {
     public AnchorPane rootLayout;
 
+    /**
+     * if the user clicks ok, close the window
+     * @param actionEvent
+     */
     public void ok(ActionEvent actionEvent) {
         Stage stage = (Stage) rootLayout.getScene().getWindow();
         stage.close();

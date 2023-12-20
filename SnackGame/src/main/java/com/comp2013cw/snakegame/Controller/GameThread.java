@@ -30,6 +30,11 @@ public class GameThread extends Thread {
 //        isPaused = paused;
 //    }
 
+    /**
+     * override the run() method in Thread, run the game and
+     * determine if the game has ended
+     * @throws RuntimeException
+     */
     @Override
     public void run() throws RuntimeException {
         while (true) {

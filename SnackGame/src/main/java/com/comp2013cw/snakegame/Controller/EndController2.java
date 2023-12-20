@@ -28,16 +28,31 @@ public class EndController2 implements Initializable {
     private final Image image = ImageMap.images.get("congratulation");
     public AnchorPane rootLayout;
 
+    /**
+     * what to do if the user clicks 'Play Again'
+     * @param actionEvent
+     * @throws Exception
+     */
     @FXML
     public void playAgain(ActionEvent actionEvent) throws Exception {
         MainController.setScenePlay();
     }
 
+    /**
+     * what to do if the user clicks 'Exit'
+     * @param actionEvent
+     * @throws Exception
+     */
     @FXML
     public void exitGame(ActionEvent actionEvent) {
         MainController.exitGame();
     }
 
+    /**
+     * initialize the settlement screen
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // set background
@@ -63,6 +78,11 @@ public class EndController2 implements Initializable {
         }
     }
 
+    /**
+     * what to do if the user clicks 'Back To Home'
+     * @param actionEvent
+     * @throws Exception
+     */
     public void backToHome(ActionEvent actionEvent) throws IOException {
         MainController.setSceneStart();
     }

@@ -16,6 +16,11 @@ public class ConfirmController {
     public AnchorPane rootLayout;
     public boolean answer;
 
+    /**
+     * what to do if the user clicks 'Yes' button
+     * @param actionEvent
+     * @throws IOException
+     */
     public void clickYes(ActionEvent actionEvent) throws IOException {
         answer = true;
         Stage stage = (Stage) rootLayout.getScene().getWindow();
@@ -23,6 +28,11 @@ public class ConfirmController {
         MainController.setSceneStart();
     }
 
+    /**
+     * what to do if the user clicks 'No' button
+     * @param actionEvent
+     * @throws IOException
+     */
     public void clickNo(ActionEvent actionEvent) {
         answer = false;
         Stage stage = (Stage) rootLayout.getScene().getWindow();

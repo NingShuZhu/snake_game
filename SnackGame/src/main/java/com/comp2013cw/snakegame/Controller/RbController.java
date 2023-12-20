@@ -17,6 +17,11 @@ import java.io.IOException;
 public class RbController {
     public AnchorPane rootLayout;
 
+    /**
+     * what to do after the user clicks submit:
+     * @param actionEvent
+     * @throws IOException
+     */
     public void clickSubmit(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) rootLayout.getScene().getWindow();
         stage.close();

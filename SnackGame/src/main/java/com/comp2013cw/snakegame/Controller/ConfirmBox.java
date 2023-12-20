@@ -19,6 +19,12 @@ public class ConfirmBox {
 
     static boolean answer;
 
+    /**
+     * display the confirmation box, waiting the user to choose yes or no
+     * @param title the title of the window
+     * @param message the prompt message
+     * @return true for yes, false for no
+     */
     public static boolean display(String title, String message){
         Stage window = new Stage();
         window.getIcons().add(ImageMap.images.get("snake-logo"));
