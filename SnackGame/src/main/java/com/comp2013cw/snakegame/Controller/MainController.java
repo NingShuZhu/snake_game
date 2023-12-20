@@ -106,9 +106,9 @@ public class MainController {
         MainController.game = game;
     }
 
-    public static void addData(PlayRecord pr) {
-        dataList.add(pr);
-    }
+//    public static void addData(PlayRecord pr) {
+//        dataList.add(pr);
+//    }
 
     public static void setName(String text) {
         name = text;
