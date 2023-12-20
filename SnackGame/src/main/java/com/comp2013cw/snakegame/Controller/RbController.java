@@ -9,9 +9,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller of Report Bug screen, which can be accessed from the start screen.
+ * @author Shuli WANG
+ */
+
 public class RbController {
     public AnchorPane rootLayout;
 
+    /**
+     * what to do after the user clicks submit:
+     * @param actionEvent
+     * @throws IOException
+     */
     public void clickSubmit(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) rootLayout.getScene().getWindow();
         stage.close();

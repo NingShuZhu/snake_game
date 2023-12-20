@@ -8,8 +8,19 @@ import javafx.scene.paint.Color;
 
 import java.util.Objects;
 
+/**
+ * Contains to methods to deal with the images.
+ * @author Shuli WANG-modified
+ */
+
 public class ImageMethods
 {
+	/**
+	 * fetch the required image from the resources
+	 * and return a JavaFX Image instance
+	 * @param imagePath the path of the image
+	 * @return a JavaFX Image instance
+	 */
 	public static Image getImage(String imagePath) {
         Image image = null;
         try {
@@ -21,17 +32,15 @@ public class ImageMethods
         return image;
     }
 
+	/**
+	 * method to rotate the image
+	 * @param image image to be rotated
+	 * @param degree positive if clockwise
+	 * @param isCyber if the image's style is cyber
+	 * @return a rotated image
+	 */
 	public static Image rotateImage(final Image image, final int degree, boolean isCyber)
 	{
-//		double w = image.getWidth();
-//		double h = image.getHeight();
-//		ImageView iv = new ImageView(image);
-//		iv.setRotate(degree);
-//
-//		SnapshotParameters params = new SnapshotParameters();
-//		params.setFill(Color.TRANSPARENT);
-//
-//        return iv.snapshot(params, null);
 		if (!isCyber){
 			if (degree == -180)
 				return getImage("/images/snake-head-left.png");

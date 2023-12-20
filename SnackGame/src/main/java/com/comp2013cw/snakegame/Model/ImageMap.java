@@ -4,10 +4,14 @@ import javafx.scene.image.Image;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class to map the images' names to their paths.
+ * @author Shuli WANG-modified
+ */
+
 public class ImageMap
 {
 	public static Map<String, Image> images = new HashMap<>();
-//	public static Map<String, String> custo2image = new HashMap<>();
 
 	static
 	{
@@ -46,8 +50,4 @@ public class ImageMap
 		images.put("cyber-bg2", ImageMethods.getImage("/images/cyber2.png"));
 	}
 
-//	static
-//	{
-//		custo2image.put("Nature scene (default)", "")
-//	}
 }

@@ -9,10 +9,22 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Shows a window to allow user to choose yes or no,
+ * be Instantiated after 'Exit' button is clicked.
+ * @author Shuli WANG
+ */
+
 public class ConfirmBox {
 
     static boolean answer;
 
+    /**
+     * display the confirmation box, waiting the user to choose yes or no
+     * @param title the title of the window
+     * @param message the prompt message
+     * @return true for yes, false for no
+     */
     public static boolean display(String title, String message){
         Stage window = new Stage();
         window.getIcons().add(ImageMap.images.get("snake-logo"));

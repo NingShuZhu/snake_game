@@ -7,6 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The main class to run the whole game,
+ * containing the main method
+ * @author Shuli WANG
+ */
+
 public class Game extends Application {
     public Stage stage;
 
@@ -16,6 +22,10 @@ public class Game extends Application {
         setInitialScene();
     }
 
+    /**
+     * set the initial screen of the game to the start screen
+     * @throws IOException
+     */
     private void setInitialScene() throws IOException {
 
         MainController.setGame(this);
@@ -27,6 +37,10 @@ public class Game extends Application {
         stage.show();
     }
 
+    /**
+     * main method to launch the game
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }

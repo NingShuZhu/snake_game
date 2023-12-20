@@ -29,6 +29,11 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of the screen to play the game.
+ * @author Shuli WANG
+ */
+
 public class GameController implements Initializable {
     private static final int WIDTH = 900;
     private static final int HEIGHT = 600;
@@ -62,6 +67,11 @@ public class GameController implements Initializable {
     private Game game;
     private final GameThread myThread = new GameThread(this);
 
+    /**
+     * initialize the game, set the background and draw the highest score
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // play the background music
@@ -88,6 +98,9 @@ public class GameController implements Initializable {
         endGameButton.setFocusTraversable(false);
     }
 
+    /**
+     * method to start playing the game
+     */
     public void playGame() {
 
         gc = canvas.getGraphicsContext2D();
@@ -127,6 +140,10 @@ public class GameController implements Initializable {
         myThread.start();
     }
 
+    /**
+     * method to run in each frame, used by GameThread
+     * @param gc graphicsContext of the canvas
+     */
     public void run(GraphicsContext gc) {
         gc.clearRect(0, 0, WIDTH, HEIGHT);
         food.draw(gc);
@@ -140,6 +157,10 @@ public class GameController implements Initializable {
         mySnake.outOfBounds();
     }
 
+    /**
+     * set the background of the scene
+     * @param image background image
+     */
     public void setBackground(Image image) {
         BackgroundImage backgroundImage = new BackgroundImage(image,
                 BackgroundRepeat.NO_REPEAT,
@@ -150,12 +171,19 @@ public class GameController implements Initializable {
         rootLayout.setBackground(background);
     }
 
+    /**
+     * draw the current score on the screen
+     * @param gc graphicsContext of the canvas
+     */
     private void drawScore(GraphicsContext gc) {
         this.gc.setFill(Color.WHITE);
         this.gc.setFont(new Font("Digital-7", 35));
         this.gc.fillText("Score: " + mySnake.score, 10, 35);
     }
 
+    /**
+     * method to change the difficulty level to the more difficult one
+     */
     public void changeLevel() {
         // speed up
         mySnake.speed_XY = mySnake.speed_XY * 2;
@@ -169,6 +197,12 @@ public class GameController implements Initializable {
         setBackground(background2);
     }
 
+    /**
+     * what to do if the user clicks 'End Game':
+     * let the user confirm the decision, if confirmed, end the game
+     * @param actionEvent
+     * @throws IOException
+     */
     public void endGame(ActionEvent actionEvent) throws IOException {
         System.out.println("end game clicked\n");
         if (!paused) {
@@ -184,6 +218,7 @@ public class GameController implements Initializable {
         ConfirmController confirmController = fxmlLoader.getController();
         boolean answer = confirmController.answer;
         paused = false;
+        // if answer is yes, stop the game thread, end the game
         if (answer) {
             synchronized (myThread) {
                 myThread.notify();
@@ -192,7 +227,9 @@ public class GameController implements Initializable {
             synchronized (myThread) {
                 myThread.interrupt();
             }
-        } else {
+        }
+        // if answer is no, continue the game
+        else {
             paused = false;
             synchronized (myThread) {
                 myThread.notify();
@@ -201,6 +238,10 @@ public class GameController implements Initializable {
 
     }
 
+    /**
+     * what to do if the user clicks 'Pause'
+     * @param mouseEvent
+     */
     public void switchPause(MouseEvent mouseEvent) {
         if (!paused) {
             paused = true;

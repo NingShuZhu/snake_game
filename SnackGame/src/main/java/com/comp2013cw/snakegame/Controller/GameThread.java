@@ -12,6 +12,11 @@ import javafx.scene.text.Font;
 
 import java.io.IOException;
 
+/**
+ * The thread to run the game logic of each frame.
+ * @author Shuli WANG
+ */
+
 public class GameThread extends Thread {
     public boolean isWaiting = false;
     //private volatile boolean isPaused = true;
@@ -25,6 +30,11 @@ public class GameThread extends Thread {
 //        isPaused = paused;
 //    }
 
+    /**
+     * override the run() method in Thread, run the game and
+     * determine if the game has ended
+     * @throws RuntimeException
+     */
     @Override
     public void run() throws RuntimeException {
         while (true) {

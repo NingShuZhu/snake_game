@@ -10,14 +10,24 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of the customization screen, which can be accessed from the start screen.
+ * @author Shuli WANG
+ */
+
 public class CustoController implements Initializable {
     public ComboBox<String> colorCombo;
     public ComboBox<String> musicCombo;
     public ComboBox<String> snakeCombo;
     public AnchorPane rootLayout;
 
+    /**
+     * if the user clicks confirm, change the UI according to the user's choice
+     * @param actionEvent
+     */
     public void clickConfirm(ActionEvent actionEvent) {
         if (musicCombo.getValue()!=null) {
+            // change the music
             MainController.music = musicCombo.getValue();
             // set the media player
             if (Objects.equals(musicCombo.getValue(), "Mechanistic")) {
@@ -25,12 +35,13 @@ public class CustoController implements Initializable {
             } else {
                 MainController.mediaPlayer = MainController.nsMediaPlayer;
             }
-            //System.out.println(MainController.music);
         }
         if (colorCombo.getValue()!=null) {
+            // change the color scheme
             MainController.colorScheme = colorCombo.getValue();
         }
         if (snakeCombo.getValue()!=null) {
+            // change the snake appearance
             MainController.snakeScheme = snakeCombo.getValue();
             if (Objects.equals(snakeCombo.getValue(), "Pixel style")) {
                 MainController.bodyImg = MainController.cyberBodyImg;
@@ -46,11 +57,20 @@ public class CustoController implements Initializable {
         stage.close();
     }
 
+    /**
+     * if th user clicks cancel, just close the window without changing
+     * @param actionEvent
+     */
     public void clickCancel(ActionEvent actionEvent) {
         Stage stage = (Stage) rootLayout.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * initialize the contents of the comboBox
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colorCombo.getItems().addAll(

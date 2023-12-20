@@ -7,6 +7,11 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class of snake, implements the interface Movable.
+ * @author Shuli WANG-modified
+ */
+
 public class Snake implements Movable{
     private static final int WIDTH = 880;
     private static final int HEIGHT = 580;
@@ -29,11 +34,20 @@ public class Snake implements Movable{
     public boolean die = false;
     public boolean addBody = false;
 
+    /**
+     * constructor, pass the initial position to the snake
+     * @param x x coordinate
+     * @param y y coordinate
+     */
     public Snake(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * draw the snake on the canvas
+     * @param gc graphsContext of the canvas
+     */
     public void drawSnake(GraphicsContext gc) {
         // add head
         // if speed is 2 times of the head width, add the middle point too
@@ -59,6 +73,11 @@ public class Snake implements Movable{
         // draw the snake's body
         drawSnakeBody(gc);
     }
+
+    /**
+     * draw the snake's body on the canvas
+     * @param gc graphsContext of the canvas
+     */
     private void drawSnakeBody(GraphicsContext gc) {
         // if the snake has body, draw it one by one
         if (snakeBody.size() > 1) {
@@ -67,6 +86,11 @@ public class Snake implements Movable{
             }
         }
     }
+
+    /**
+     * make the snake move a step forward to the current direction
+     * @param currentDirection current moving direction
+     */
     public void move(int currentDirection) {
         switch (currentDirection) {
             case RIGHT:
@@ -96,6 +120,10 @@ public class Snake implements Movable{
         }
     }
 
+    /**
+     * method to see if the snake eats the food
+     * @param food
+     */
     public void eatFood(Food food) {
         // calculate if the snake's head is around the food
         if ((x + headWidth >= food.getFoodX() && x <= food.getFoodX() + food.getFoodW()) && (y + headHeight >= food.getFoodY() && y <= food.getFoodY() + food.getFoodH())) {
@@ -108,7 +136,9 @@ public class Snake implements Movable{
         } else addBody = false;
     }
 
-
+    /**
+     * method to see if the snake eats itself
+     */
     public void eatBody() {
         // if two points of the snake are in the same place, it eats itself
         for (Point point : snakeBody)
@@ -125,6 +155,9 @@ public class Snake implements Movable{
         }
     }
 
+    /**
+     * method to see if the snake is out of bounds
+     */
     public void outOfBounds() {
         // if the current place of the snake is out of the bounds of the stage
         boolean xOut = (x < 0 || x > WIDTH);
