@@ -1,7 +1,9 @@
 # Project Title: Snake Game
-## Author: Shuli WANG
+## Author: 
+***Shuli WANG***
 
 ## Brief project description:
+This project can enable users to play the classic snake game. The users can also customize the UI and the music, see the ranked high score list, and report the bugs in the game.
 
 
 ## How to install and run the project:
