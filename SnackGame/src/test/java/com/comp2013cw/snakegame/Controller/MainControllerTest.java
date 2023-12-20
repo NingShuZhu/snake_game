@@ -7,12 +7,13 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class MainControllerTest {
     Game game = new Game();
 
     @Test
-    public void ifTheDataInSortedListIsSorted() {
+    void dataInSortedListIsSorted() {
         // add two records
         MainController.setScore(521);
         MainController.setName("Shuli");
@@ -21,4 +22,5 @@ public class MainControllerTest {
         // test if the one has higher score is in front of the lower one
         assertEquals("Shu", MainController.dataList.get(0).getUserName());
     }
+
 }
